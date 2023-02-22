@@ -7,19 +7,31 @@ const inputHeightElement = document.getElementById("height");
 const inputWeightElement = document.getElementById("weight");
 const inputResultElement = document.getElementById("bmi-result");
 const clearButton = document.getElementById("btn-clear");
+const weightCondition = document.getElementById("weight-condition");
 
 computeButton.addEventListener("click", function (e) {
-  console.log(inputHeightElement.value);
-  console.log(inputWeightElement.value);
-
   if (inputWeightElement.value && inputHeightElement.value) {
-    inputResultElement.value = (
+    const resultBMI = (
       +(inputWeightElement.value * 10000) /
       +(inputHeightElement.value * inputHeightElement.value)
-    ).toFixed(2);
+    ).toFixed(1);
+    inputResultElement.value = resultBMI;
+
+    if (resultBMI < 18.5) weightCondition.innerText = "Underweight";
+    if (resultBMI >= 18.5 && resultBMI < 25)
+      weightCondition.innerText = "Normal";
+    if (resultBMI >= 25 && resultBMI < 35)
+      weightCondition.innerText = "Overweight";
+    if (resultBMI >= 35) weightCondition.innerText = "Obesity";
   }
 });
 
 clearButton.addEventListener("click", function (e) {
-  inputAllElement.forEach((input) => (input.value = ""));
+  if (
+    inputHeightElement.value ||
+    inputResultElement.value ||
+    inputWeightElement.value
+  ) {
+    inputAllElement.forEach((input) => (input.value = ""));
+  }
 });
