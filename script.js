@@ -12,11 +12,12 @@ computeButton.addEventListener("click", function (e) {
   console.log(inputHeightElement.value);
   console.log(inputWeightElement.value);
 
-  console.log(
-    (inputResultElement.value =
-      Number(inputWeightElement) /
-      (Number(inputHeightElement) * Number(inputHeightElement)))
-  );
+  if (inputWeightElement.value && inputHeightElement.value) {
+    inputResultElement.value = (
+      +(inputWeightElement.value * 10000) /
+      +(inputHeightElement.value * inputHeightElement.value)
+    ).toFixed(2);
+  }
 });
 
 clearButton.addEventListener("click", function (e) {
