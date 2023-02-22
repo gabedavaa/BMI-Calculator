@@ -5,13 +5,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./style.css" />
-    <script src="./script.js"></script>
+    <script defer src="./script.js"></script>
     <title>BMI Calculator</title>
   </head>
   <body>
     <div class="main-container">
       <h2 class="heading">Body Mass Index (BMI) Calculator</h2>
-      <p class="heading-height">Your Height (cm):</p>
+      <p class="heading-p height">Your Height (cm):</p>
       <input
         type="number"
         class="input"
@@ -19,7 +19,7 @@
         value="180"
         placeholder="Enter your height in cm"
       />
-      <p class="heading-weight">Your Weight (kg):</p>
+      <p class="heading-p weight">Your Weight (kg):</p>
       <input
         type="number"
         class="input"
@@ -27,12 +27,15 @@
         value="80"
         placeholder="Enter your weight in kg"
       />
-      <button class="btn-bmi" id="btn-bmi">Compute BMI</button>
-      <p class="heading-bmi">Your BMI:</p>
-      <input disabled type="text" class="input" id="bmi-result" />
-      <h3 class="info-text">
+      <div class="btn-container">
+        <button class="btn bmi" id="btn-bmi">Compute BMI</button>
+        <button class="btn clear" id="btn-clear">Clear</button>
+      </div>
+      <p class="heading-p bmi">Your BMI:</p>
+      <input disabled type="text" class="input info-input" id="bmi-result" />
+      <p class="heading-p info-text">
         Weight Condition: <span id="weight-condition"></span>
-      </h3>
+      </p>
     </div>
   </body>
 </html>
